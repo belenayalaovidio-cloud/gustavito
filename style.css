@@ -1,0 +1,992 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* ESTRELLAS GENERALES */
+
+.estrellas {
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#65dcff 1px, transparent 1px);
+
+    background-size:
+        90px 90px,
+        150px 150px;
+
+    background-position:
+        0 0,
+        40px 70px;
+
+    opacity: .35;
+
+    animation: moverEstrellas 25s linear infinite;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+@keyframes moverEstrellas {
+
+    from {
+        background-position:
+            0 0,
+            40px 70px;
+    }
+
+    to {
+        background-position:
+            0 150px,
+            40px 220px;
+    }
+}
+
+
+/* INICIO */
+
+#inicio {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #073b55,
+            #020d16 50%,
+            #000 85%
+        );
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+#inicio.ocultar {
+    opacity: 0;
+
+    transform: scale(1.15);
+
+    pointer-events: none;
+}
+
+.inicio-contenido {
+    animation: aparecer 2s ease;
+}
+
+.fecha {
+    color: #65e5ff;
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(50px, 13vw, 90px);
+
+    line-height: .9;
+
+    text-shadow:
+        0 0 20px #00d9ff,
+        0 0 45px #0077ff;
+}
+
+.corazon {
+    color: #45dcff;
+
+    font-size: 75px;
+
+    margin: 25px;
+
+    animation: latido 1.5s infinite;
+
+    text-shadow:
+        0 0 20px #00d9ff,
+        0 0 50px #0077ff;
+}
+
+.subtitulo {
+    color: #c2e5ef;
+
+    margin-bottom: 30px;
+}
+
+#comenzar {
+    padding: 15px 30px;
+
+    border-radius: 30px;
+
+    border: 1px solid #00d9ff;
+
+    background: rgba(0, 160, 255, .15);
+
+    color: white;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px rgba(0, 210, 255, .5);
+
+    transition: .3s;
+}
+
+#comenzar:hover {
+    transform: scale(1.08);
+
+    background: #008dcc;
+}
+
+
+/* CONTENIDO */
+
+#contenido {
+    position: relative;
+
+    z-index: 2;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #041d2c,
+            #01070c 55%,
+            #000
+        );
+}
+
+
+/* PRESENTACION */
+
+.presentacion {
+    text-align: center;
+
+    padding:
+        120px
+        20px
+        20px;
+}
+
+.presentacion p {
+    color: #55ddff;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+}
+
+.presentacion h2 {
+    font-size: clamp(35px, 8vw, 65px);
+
+    margin: 20px 0;
+
+    text-shadow:
+        0 0 20px #00d9ff;
+}
+
+.presentacion span {
+    color: #a8ccd9;
+}
+
+
+/* ESPACIO */
+
+.espacio {
+    height: 470px;
+
+    width: 100%;
+
+    position: relative;
+}
+
+
+/* AGUJERO NEGRO */
+
+.agujero-negro {
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+.anillo {
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    border: 8px solid transparent;
+
+    border-top-color: #00d9ff;
+
+    border-bottom-color: #006eff;
+
+    filter:
+        blur(4px)
+        drop-shadow(0 0 15px #00d9ff);
+
+    animation:
+        girar 4s linear infinite;
+}
+
+.anillo2 {
+    inset: 20px;
+
+    animation:
+        girar 2.5s linear infinite reverse;
+
+    border-top-color: white;
+
+    border-bottom-color: #00aaff;
+}
+
+.centro {
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background: #000;
+
+    box-shadow:
+        0 0 40px #000,
+        0 0 70px rgba(0, 130, 255, .5);
+}
+
+@keyframes girar {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* CORAZON */
+
+.corazon-universo {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        translateY(-145px);
+
+    color: #45dcff;
+
+    font-size: 90px;
+
+    text-shadow:
+        0 0 15px white,
+        0 0 30px #00d9ff,
+        0 0 60px #0077ff;
+
+    animation: latidoUniverso 1.5s infinite;
+}
+
+@keyframes latidoUniverso {
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            translateY(-145px)
+            scale(1.15);
+    }
+}
+
+
+/* CONTADOR */
+
+.contador {
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+#numero {
+    color: #55ddff;
+
+    letter-spacing: 4px;
+
+    font-size: 13px;
+}
+
+#indicador {
+    color: #7599a8;
+
+    margin-top: 10px;
+
+    font-size: 13px;
+}
+
+
+/* REGALOS */
+
+.regalo {
+    min-height: 100vh;
+
+    width: min(1000px, 92%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+
+    padding: 100px 0;
+
+    opacity: 0;
+
+    transform: translateY(100px);
+
+    transition:
+        opacity 1s,
+        transform 1s;
+
+    position: relative;
+}
+
+.regalo.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.numero {
+    position: absolute;
+
+    top: 30px;
+    left: 0;
+
+    font-size: 90px;
+
+    color: rgba(80, 220, 255, .07);
+
+    font-weight: bold;
+}
+
+
+/* IMAGEN */
+
+.imagen-regalo {
+    min-height: 420px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.imagen-regalo img {
+    width: 90%;
+
+    max-width: 430px;
+
+    max-height: 480px;
+
+    object-fit: contain;
+
+    position: relative;
+
+    z-index: 2;
+
+    transform:
+        scale(.75)
+        rotate(-8deg);
+
+    opacity: .2;
+
+    transition: 1.2s;
+
+    filter:
+        drop-shadow(0 0 25px rgba(0, 200, 255, .7));
+}
+
+.regalo.visible img {
+    transform:
+        scale(1)
+        rotate(0deg);
+
+    opacity: 1;
+}
+
+
+/* HALO */
+
+.halo {
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 220, 255, .4),
+            transparent 65%
+        );
+
+    animation:
+        halo 3s infinite;
+}
+
+.halo.azul {
+    background:
+        radial-gradient(
+            circle,
+            rgba(40, 120, 255, .4),
+            transparent 65%
+        );
+}
+
+.halo.dorado {
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 190, 50, .45),
+            transparent 65%
+        );
+}
+
+@keyframes halo {
+
+    50% {
+        transform: scale(1.2);
+
+        opacity: .7;
+    }
+}
+
+
+/* TEXTO */
+
+.texto-regalo span {
+    color: #55ddff;
+
+    letter-spacing: 4px;
+
+    font-size: 11px;
+}
+
+.texto-regalo h2 {
+    font-size: clamp(30px, 5vw, 50px);
+
+    margin: 18px 0;
+
+    line-height: 1;
+}
+
+.texto-regalo > p {
+    color: #b5d1db;
+
+    line-height: 1.8;
+}
+
+.frase {
+    border-left: 2px solid #31d8ff;
+
+    padding-left: 20px;
+
+    margin-top: 25px;
+
+    color: #65e5ff;
+
+    font-style: italic;
+
+    line-height: 1.6;
+}
+
+
+/* BOTON SIGUIENTE */
+
+.siguiente {
+    margin-top: 35px;
+
+    padding: 14px 25px;
+
+    border-radius: 30px;
+
+    border: 1px solid #00cfff;
+
+    background:
+        rgba(0, 150, 255, .12);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.siguiente:hover {
+    transform: translateX(7px);
+
+    background: #008fd0;
+}
+
+
+/* FINAL */
+
+#final {
+    min-height: 100vh;
+
+    text-align: center;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    padding: 100px 20px;
+
+    opacity: 0;
+
+    transform: scale(.9);
+
+    transition: 1s;
+}
+
+#final.visible {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+.final-corazon {
+    font-size: 100px;
+
+    color: #45dcff;
+
+    animation: latido 1.3s infinite;
+
+    text-shadow:
+        0 0 20px #00d9ff,
+        0 0 60px #0077ff;
+}
+
+#final h2 {
+    font-size: clamp(45px, 9vw, 75px);
+
+    margin: 20px;
+}
+
+.regalos-finales {
+    font-size: 50px;
+
+    margin: 20px;
+}
+
+#final > p {
+    color: #b5d1db;
+
+    max-width: 550px;
+
+    line-height: 1.8;
+}
+
+#irUniverso {
+    margin-top: 40px;
+
+    padding: 16px 30px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    color: white;
+
+    background: #008fd0;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 25px #008cff;
+
+    transition: .3s;
+}
+
+#irUniverso:hover {
+    transform: scale(1.08);
+}
+
+
+/* =================================
+   UNIVERSO FINAL
+================================= */
+
+#universoFinal {
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #061d32 0%,
+            #020912 35%,
+            #000 75%
+        );
+
+    opacity: 0;
+
+    transform: scale(1.1);
+
+    transition:
+        opacity 2s,
+        transform 2s;
+}
+
+#universoFinal.mostrar {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+/* ESTRELLAS DEL FINAL */
+
+.estrellas-final {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#80eaff 1px, transparent 1px),
+        radial-gradient(#ffffff 2px, transparent 2px);
+
+    background-size:
+        70px 70px,
+        130px 130px,
+        220px 220px;
+
+    background-position:
+        0 0,
+        30px 50px,
+        90px 120px;
+
+    animation:
+        universoEstrellas 30s linear infinite;
+
+    opacity: .7;
+}
+
+@keyframes universoEstrellas {
+
+    to {
+        transform: scale(1.15);
+
+        background-position:
+            100px 180px,
+            -100px 220px,
+            180px -100px;
+    }
+}
+
+
+/* CENTRO DEL UNIVERSO */
+
+.universo-contenido {
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ANILLO GRANDE */
+
+.universo-anillo {
+    position: absolute;
+
+    width: min(600px, 80vw);
+    height: min(600px, 80vw);
+
+    border-radius: 50%;
+
+    border:
+        15px solid transparent;
+
+    border-top-color: #00d9ff;
+
+    border-bottom-color: #0077ff;
+
+    filter:
+        blur(5px)
+        drop-shadow(0 0 25px #00cfff);
+
+    animation:
+        universoGira 10s linear infinite;
+}
+
+@keyframes universoGira {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* CENTRO */
+
+.universo-centro {
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: #000;
+
+    box-shadow:
+        0 0 40px #000,
+        0 0 80px rgba(0, 140, 255, .5),
+        0 0 130px rgba(0, 90, 255, .3);
+}
+
+
+/* MENSAJE */
+
+.mensaje-universo {
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    max-width: 650px;
+
+    padding: 30px;
+}
+
+.mensaje-universo p {
+    color: #65e5ff;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+}
+
+.mensaje-universo h2 {
+    font-size: clamp(35px, 8vw, 70px);
+
+    margin: 25px 0;
+
+    text-shadow:
+        0 0 20px #00d9ff,
+        0 0 50px #0077ff;
+}
+
+.corazon-final {
+    font-size: 75px;
+
+    color: #51dcff;
+
+    animation: latido 1.5s infinite;
+
+    text-shadow:
+        0 0 20px white,
+        0 0 40px #00d9ff;
+}
+
+.mensaje-universo span {
+    display: block;
+
+    margin-top: 25px;
+
+    color: #b7dce8;
+
+    font-size: 17px;
+}
+
+
+/* MUSICA */
+
+#musicaBtn {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 200;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    border: 1px solid #00d9ff;
+
+    background: rgba(0, 20, 35, .85);
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+/* ANIMACION */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* CELULAR */
+
+@media(max-width: 700px) {
+
+    .espacio {
+        height: 400px;
+    }
+
+    .agujero-negro {
+        width: 160px;
+        height: 160px;
+    }
+
+    .centro {
+        width: 80px;
+        height: 80px;
+    }
+
+    .corazon-universo {
+        font-size: 65px;
+    }
+
+    .regalo {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        padding: 80px 0;
+    }
+
+    .imagen-regalo {
+        min-height: 330px;
+    }
+
+    .imagen-regalo img {
+        max-height: 350px;
+    }
+
+    .texto-regalo {
+        text-align: center;
+
+        padding: 0 15px;
+    }
+
+    .frase {
+        text-align: left;
+    }
+
+    .numero {
+        font-size: 60px;
+    }
+
+    .universo-anillo {
+        width: 420px;
+        height: 420px;
+    }
+
+    .universo-centro {
+        width: 170px;
+        height: 170px;
+    }
+
+}
+@keyframes brillar {
+
+    from {
+        opacity: .2;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
